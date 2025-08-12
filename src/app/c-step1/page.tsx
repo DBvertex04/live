@@ -37,10 +37,11 @@ export default function Page1() {
       <Header2 />
 
       <main
-        className="pt-[120px] pb-12 flex justify-center relative z-10"
+        className="pt-[120px] pb-12 relative z-10"
         style={{ top: "37px", paddingBottom: "120px" }}
       >
-        <div className="w-full max-w-[85%] px-4">
+        {/* Container with same width as header */}
+        <div className="w-[87%] mx-auto">
           <h2 className="text-2xl font-bold">
             <span
               style={{
@@ -79,26 +80,26 @@ export default function Page1() {
 
           {/* Property Type Selection */}
           <div
-            className="bg-white rounded-2xl shadow-md p-4 relative pb-10 w-full sm:w-[700px] mx-auto"
+            className="bg-white rounded-2xl shadow-md p-4 relative pb-10 mx-auto md:h-[250px] md:max-w-[45%]"
             style={{ marginTop: "30px" }}
           >
             <div className="flex flex-row justify-center gap-4 sm:gap-12 mt-10">
               {/* Residential */}
               <div
                 onClick={() => setSelected("RESIDENTIAL")}
-                className={`relative h-[70px] sm:h-[76px] w-[140px] sm:w-[200px] overflow-visible flex flex-col items-center justify-end pt-12 sm:pt-16 cursor-pointer transition-all duration-200 rounded-[21px]
-        ${
-          isSelected("RESIDENTIAL")
-            ? "border border-[#2450A0] bg-white"
-            : "bg-gray-100 border border-transparent"
-        }`}
+                className={`relative md:h-[100px] h-[70px] w-[140px] sm:w-[200px] overflow-visible flex flex-col items-center justify-end pt-12 sm:pt-16 cursor-pointer transition-all duration-200 rounded-[21px]
+                  ${
+                    isSelected("RESIDENTIAL")
+                      ? "border border-[#2450A0] bg-white"
+                      : "bg-gray-100 border border-transparent"
+                  }`}
                 style={{ paddingBottom: "8px" }}
               >
                 <Image
                   src="/home1.png"
                   alt="Residential"
-                  width={80}
-                  height={80}
+                  width={100}
+                  height={100}
                   className="absolute mb-4 sm:mb-6 left-1/2 -translate-x-1/2 scale-x-[-1]"
                 />
                 <p
@@ -117,19 +118,19 @@ export default function Page1() {
               {/* Commercial */}
               <div
                 onClick={() => setSelected("COMMERCIAL")}
-                className={`relative h-[70px] sm:h-[76px] w-[140px] sm:w-[200px] overflow-visible flex flex-col items-center justify-end pt-12 sm:pt-16 cursor-pointer transition-all duration-200 rounded-[21px]
-        ${
-          isSelected("COMMERCIAL")
-            ? "border border-[#2450A0] bg-white"
-            : "bg-gray-100 border border-transparent"
-        }`}
+                className={`relative md:h-[100px] h-[70px] w-[140px] sm:w-[200px] overflow-visible flex flex-col items-center justify-end pt-12 sm:pt-16 cursor-pointer transition-all duration-200 rounded-[21px]
+                  ${
+                    isSelected("COMMERCIAL")
+                      ? "border border-[#2450A0] bg-white"
+                      : "bg-gray-100 border border-transparent"
+                  }`}
                 style={{ paddingBottom: "8px" }}
               >
                 <Image
                   src="/home2.png"
                   alt="Commercial"
-                  width={80}
-                  height={80}
+                  width={100}
+                  height={100}
                   className="absolute mb-4 sm:mb-6 left-1/2 -translate-x-1/2 scale-x-[-1]"
                 />
                 <p
@@ -163,33 +164,33 @@ export default function Page1() {
           </div>
 
           {/* Location Input */}
-          <div className="mt-[40px] bg-white rounded-2xl shadow-md p-5 md:p-8 md:w-3/4 md:mx-auto">
-            <p
-              style={{
-                fontSize: "14px",
-                fontWeight: "500",
-                color: "rgba(102, 102, 102, 1)",
-              }}
-            >
-              First, enter the address of the property you're looking to sell.
-            </p>
+          <div className="mt-[40px] bg-white rounded-2xl shadow-md p-5 md:p-8 md:max-w-[45%] mx-auto">
+  <p
+    style={{
+      fontSize: "14px",
+      fontWeight: "500",
+      color: "rgba(102, 102, 102, 1)",
+    }}
+  >
+    First, enter the address of the property you're looking to sell.
+  </p>
 
-            <div className="relative">
-  <input
-    type="text"
-    placeholder="Location"
-    className="w-full px-4 py-2 pr-10 border border-[#2450A0] rounded-2xl font-semibold text-gray-500 placeholder-gray-400 outline-none md:h-[50px] h-[40px] mt-5"
-  />
-  <Image
-    src="/Location.png"
-    alt="Location Icon"
-    width={24}
-    height={24}
-    className="absolute right-2 top-1/2 transform -translate-y-1/2 md:mt-2 mt-2"
-  />
+  <div className="relative">
+    <input
+      type="text"
+      placeholder="Location"
+      className="w-full px-4 py-2 pr-10 border border-[#2450A0] rounded-2xl font-semibold text-gray-500 placeholder-gray-400 outline-none md:h-[50px] h-[40px] mt-5"
+    />
+    <Image
+      src="/Location.png"
+      alt="Location Icon"
+      width={24}
+      height={24}
+      className="absolute right-2 top-1/2 transform -translate-y-1/2 md:mt-2 mt-2"
+    />
+  </div>
 </div>
 
-          </div>
 
           {/* Next Button */}
           <div className="text-right mt-4">

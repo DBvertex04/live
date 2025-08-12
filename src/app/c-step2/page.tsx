@@ -45,44 +45,29 @@ export default function MovingDetail() {
       <Header2 />
 
       {/* Main Content */}
-      <main
-        className="pt-[120px] pb-12 flex justify-center relative z-10"
-        style={{ top: "35px" }}
-      >
-        <div className="w-[85%] max-w-[1090px] mx-auto">
-          <h2 className="text-2xl font-[700] md:ml-[-110px]">
-            <span className="text-[rgba(0, 0, 0, 1)]">Moving</span>{" "}
+      <main className="pt-[120px] pb-12 flex justify-center relative z-10" style={{ top: "35px" }}>
+        {/* Matches Header width */}
+        <div className="w-[85%] mx-auto">
+          {/* Title */}
+          <h2 className="text-xl md:text-3xl font-[700]">
+            <span className="text-black">Moving</span>{" "}
             <span className="text-[rgba(36,80,160,1)]">Details</span>
           </h2>
 
-          <p
-            className="mt-1 md:ml-[-110px]"
-            style={{
-              marginTop: "12px",
-              color: "rgba(102, 102, 102, 1)",
-              fontSize: "16px",
-              fontWeight: "400",
-            }}
-          >
+          {/* Subtitle */}
+          <p className="mt-3 text-sm md:text-base text-[rgba(102,102,102,1)] font-normal">
             Answer a few questions and get your no-obligation cash offer in as{" "}
-            <span style={{ fontWeight: "600" }}>little as 3 minutes.</span>
+            <span className="font-semibold">little as 3 minutes.</span>
           </p>
 
-          <div className="bg-white rounded-2xl shadow-md mt-6 p-4">
+          {/* Question Card */}
+          <div className="bg-white rounded-2xl shadow-md mt-8 p-4">
             <h3
-              className="text-lg font-semibold mb-4 border-l-4 pl-3"
+              className="mb-4 border-l-4 pl-3 text-lg md:text-2xl font-semibold"
               style={{ borderColor: "#2450A0" }}
             >
-              <span
-                className="font-[600]"
-                style={{ color: "rgba(36, 80, 160, 1)", fontSize: "24px" }}
-              >
-                H
-              </span>
-              <span
-                className="font-[600]"
-                style={{ color: "rgba(10, 9, 9, 1)", fontSize: "20px" }}
-              >
+              <span className="font-[600] text-[rgba(36,80,160,1)]">H</span>
+              <span className="font-[600] text-[rgba(10,9,9,1)]">
                 ow soon would you like to sell?
               </span>
             </h3>
@@ -117,11 +102,9 @@ export default function MovingDetail() {
                     />
                   </div>
                   <span
-                    className="text-[15px] leading-[15px] font-semibold tracking-normal"
-                    style={{
-                      color: selected === index ? "#2450A0" : "#757577",
-                      fontWeight: "600",
-                    }}
+                    className={`font-semibold text-sm md:text-lg ${
+                      selected === index ? "text-[#2450A0]" : "text-[#757577]"
+                    }`}
                   >
                     {label}
                   </span>
@@ -131,23 +114,17 @@ export default function MovingDetail() {
           </div>
 
           {/* Next Button */}
-<div className="mt-8 flex justify-center lg:justify-end relative">
-  <Link href="/c-step3">
-    <Image
-      src="/next.png"
-      alt="Next Step"
-      width={300}
-      height={300}
-      className="
-        cursor-pointer 
-        w-[300px]  // smaller size for mobile
-        lg:w-[300px] // original size for desktop
-      "
-    />
-  </Link>
-</div>
-
-
+          <div className="mt-8 flex justify-center lg:justify-end">
+            <Link href="/c-step3">
+              <Image
+                src="/next.png"
+                alt="Next Step"
+                width={350}
+                height={350}
+                className="cursor-pointer w-[250px] md:w-[300px] lg:w-[350px]"
+              />
+            </Link>
+          </div>
         </div>
       </main>
     </div>

@@ -310,6 +310,7 @@ const Step1: React.FC<Step1Props> = ({
             onChange={handleCheckbox}
             className="h-4 w-4 text-[#2450A0] border-gray-300 rounded"
           />
+          
           <p className="text-sm">
             I agree to the Broker{" "}
             <Link href="#" className="text-[#2450a0] underline">

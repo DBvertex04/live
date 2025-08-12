@@ -6,6 +6,7 @@ import Link from "next/link";
 import Header2 from "@/components/Header2";
 
 export default function PropertyTypeSelection() {
+  // Keep "Other" last
   const options = [
     { label: "Office", image: "/office.png" },
     { label: "Retail shop", image: "/retail.png" },
@@ -27,7 +28,6 @@ export default function PropertyTypeSelection() {
       return;
     }
     setError("");
-    // Save selectedOption and otherText if needed
   };
 
   return (
@@ -61,100 +61,87 @@ export default function PropertyTypeSelection() {
         className="pt-[120px] pb-12 flex justify-center relative z-10"
         style={{ top: "35px", paddingBottom: "120px" }}
       >
-        <div
-          className="w-full max-w-[650px] px-4"
-          style={{ maxWidth: "1090px" }}
-        >
-          <h2 className="text-2xl font-bold md:ml-[-110px]">
-            <span
-              style={{
-                color: "#000000",
-                fontWeight: "700",
-                fontSize: "24px",
-                lineHeight: "29px",
-              }}
-            >
+        <div className="w-full max-w-[85%] mx-auto">
+          {/* Title */}
+          <h2 className="text-2xl font-bold">
+            <span className="text-black font-bold text-[26px] leading-[29px]">
               Property
             </span>{" "}
-            <span
-              style={{
-                color: "#2450A0",
-                fontWeight: "700",
-                fontSize: "24px",
-                lineHeight: "29px",
-              }}
-            >
+            <span className="text-[#2450A0] font-bold text-[26px] leading-[29px]">
               Type
             </span>
           </h2>
 
-          <p
-            className="mt-1 md:ml-[-110px]"
-            style={{
-              marginTop: "12px",
-              color: "rgba(102, 102, 102, 1)",
-              fontSize: "16px",
-              fontWeight: "400",
-            }}
-          >
+          {/* Subtitle */}
+          <p className="mt-3 text-sm md:text-base text-[rgba(102,102,102,1)] font-normal">
             Answer a few questions and get your no-obligation cash offer in as{" "}
-            <span style={{ fontWeight: "600" }}>little as 3 minutes.</span>
+            <span className="font-semibold">little as 3 minutes.</span>
           </p>
 
-          <div className="bg-white rounded-2xl shadow-md mt-6 p-4">
+          {/* Question Card */}
+          <div className="bg-white rounded-2xl shadow-md mt-10 p-4">
             <h3
-              className="text-lg font-semibold mb-4 border-l-4 pl-3 w-[313px] h-[65px] opacity-100"
-              style={{ color: "rgba(36, 80, 160, 1)" }}
+              className="border-l-4 pl-3 mb-4 font-semibold text-base md:text-2xl whitespace-normal md:whitespace-nowrap"
+              style={{ borderColor: "#2450A0" }}
             >
-              <span className="text-[#2450A0] text-2xl font-bold">C</span>
-              <span
-                className="font-semibold text-[20px] leading-[100%] tracking-[0]"
-                style={{ color: "#0A0909", fontWeight: "600" }}
-              >
+              <span className="text-[#2450A0] font-bold">C</span>
+              <span className="text-[#0A0909] font-semibold">
                 hoose Property Type would you like to sell?
               </span>
             </h3>
 
-            <div className="grid grid-cols-3 gap-3">
-              {options.map((option, index) => {
-                const isLast = index === options.length - 1;
-                const isIncompleteLastRow =
-                  options.length % 3 !== 0 &&
-                  index >= options.length - (options.length % 3);
-
-                return (
-                  <button
-                    key={index}
-                    onClick={() => {
-                      setSelected(index);
-                      setSelectedOption(option.label);
-                    }}
-                    className={`
-                      flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold
-                      ${
-                        selected === index
-                          ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
-                          : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
-                      }
-                      ${
-                        isLast &&
-                        isIncompleteLastRow &&
-                        options.length % 3 === 1
-                          ? "col-span-1 col-start-2"
-                          : ""
-                      }
-                    `}
-                  >
-                    <div className="mb-2">
-                      <img src={option.image} alt="icon" />
-                    </div>
-                    <span style={{ fontWeight: "500", fontSize: "15px" }}>
-                      {option.label}
-                    </span>
-                  </button>
-                );
-              })}
+            {/* First row grid for first 5 options */}
+            <div className="grid grid-cols-3 lg:grid-cols-5 gap-3 justify-center items-center">
+              {options.slice(0, 5).map((option, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setSelected(index);
+                    setSelectedOption(option.label);
+                  }}
+                  className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold
+                    ${
+                      selected === index
+                        ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
+                        : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
+                    }
+                  `}
+                >
+                  <div className="mb-2">
+                    <img src={option.image} alt="icon" />
+                  </div>
+                  <span className="font-medium text-sm md:text-base">
+                    {option.label}
+                  </span>
+                </button>
+              ))}
             </div>
+
+            {/* Second row with only "Other" centered */}
+<div className="grid grid-cols-3 lg:grid-cols-5 mt-3">
+  <div className="col-start-2 lg:col-start-3 col-span-1 flex justify-center">
+    <button
+      onClick={() => {
+        setSelected(5);
+        setSelectedOption("Other");
+      }}
+      className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold w-full
+        ${
+          selected === 5
+            ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
+            : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
+        }
+      `}
+      style={{ maxWidth: '100%' }}
+    >
+      <div className="mb-2">
+        <img src="/others.png" alt="Other icon" />
+      </div>
+      <span className="font-medium text-sm md:text-base">Other</span>
+    </button>
+  </div>
+</div>
+
 
             {/* Show Other field only if selected */}
             {selectedOption === "Other" && (
@@ -164,7 +151,7 @@ export default function PropertyTypeSelection() {
                 </label>
                 <input
                   type="text"
-                  placeholder="If Select Other"
+                  placeholder="Please Specify"
                   value={otherText}
                   onChange={(e) => setOtherText(e.target.value)}
                   className={`mt-1 w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-2 ${
@@ -184,14 +171,15 @@ export default function PropertyTypeSelection() {
             )}
           </div>
 
-          <div className="text-right mt-4">
-            <Link href="/c-step5" onClick={handleNextClick}>
+          {/* Next Button */}
+          <div className="mt-8 flex justify-center lg:justify-end">
+            <Link href="/c-step5">
               <Image
                 src="/next.png"
-                alt="Bottom Image"
-                width={300}
-                height={300}
-                className="absolute mt-4 cursor-pointer left-1/2 -translate-x-1/2 lg:left-[940px] lg:translate-x-0"
+                alt="Next Step"
+                width={350}
+                height={350}
+                className="cursor-pointer w-[250px] md:w-[300px] lg:w-[350px]"
               />
             </Link>
           </div>
