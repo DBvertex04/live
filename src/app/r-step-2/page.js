@@ -45,7 +45,10 @@ export default function MovingDetail() {
       <Header2 />
 
       {/* Main Content */}
-      <main className="pt-[120px] pb-12 flex justify-center relative z-10" style={{ top: "35px" }}>
+      <main
+        className="pt-[120px] pb-12 flex justify-center relative z-10"
+        style={{ top: "35px" }}
+      >
         {/* Matches Header width */}
         <div className="w-[85%] mx-auto">
           {/* Title */}
@@ -63,14 +66,16 @@ export default function MovingDetail() {
           {/* Question Card */}
           <div className="bg-white rounded-2xl shadow-md mt-8 p-4">
             <h3
-              className="mb-4 border-l-4 pl-3 text-lg md:text-2xl font-semibold"
-              style={{ borderColor: "#2450A0" }}
-            >
-              <span className="font-[600] text-[rgba(36,80,160,1)]">H</span>
-              <span className="font-[600] text-[rgba(10,9,9,1)]">
-                ow soon would you like to sell?
-              </span>
-            </h3>
+  className="mb-4 border-l-4 pl-3 flex flex-wrap md:flex-nowrap items-center text-lg md:text-2xl font-semibold"
+  style={{ borderColor: "#2450A0" }}
+>
+  <span className="text-[rgba(36,80,160,1)] font-[700]">
+    H
+    <span className="text-[rgba(10,9,9,1)] font-[600]">
+      ow soon would you like to sell?
+    </span>
+  </span>
+</h3>
 
             <form className="space-y-3">
               {options.map((label, index) => (

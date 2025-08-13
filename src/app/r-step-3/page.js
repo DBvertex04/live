@@ -52,7 +52,6 @@ export default function PropertyTypeSelection() {
         className="pt-[120px] pb-12 flex justify-center relative z-10"
         style={{ top: "35px", paddingBottom: "120px" }}
       >
-        {/* Match header width */}
         <div className="w-[87%] mx-auto">
           <h2 className="text-2xl font-bold">
             <span
@@ -96,11 +95,10 @@ export default function PropertyTypeSelection() {
               </span>
             </h3>
 
-            <div className="grid grid-cols-3 lg:grid-cols-4 gap-3">
+            {/* Mobile: custom 3x3 grid with 2nd column having 4 items */}
+            <div className="hidden lg:grid grid-cols-4 gap-3">
               {options.map((option, index) => {
-                // Determine if item is one of last two
                 const isLastTwo = index >= options.length - 2;
-                // If first of last two, start from column 2 to center last two items
                 const colStartClass =
                   isLastTwo && index === options.length - 2 ? "col-start-2" : "";
 
@@ -108,15 +106,13 @@ export default function PropertyTypeSelection() {
                   <button
                     key={index}
                     onClick={() => setSelected(index)}
-                    className={`
-                      flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold
+                    className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold
                       ${
                         selected === index
                           ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
                           : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
                       }
-                      ${colStartClass}
-                    `}
+                      ${colStartClass}`}
                   >
                     <div className="mb-2">
                       <img
@@ -130,7 +126,95 @@ export default function PropertyTypeSelection() {
                 );
               })}
             </div>
+
+            {/* Mobile layout */}
+<div className="grid grid-cols-3 gap-3 lg:hidden">
+  {/* First 3 rows normal */}
+  {options.slice(0, 3).map((option, index) => (
+    <button
+      key={index}
+      onClick={() => setSelected(index)}
+      className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold
+        ${
+          selected === index
+            ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
+            : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
+        }`}
+    >
+      <div className="mb-2">
+        <img src={option.image} alt="icon" className="w-9 h-9 object-contain" />
+      </div>
+      <span style={{ fontWeight: "500" }}>{option.label}</span>
+    </button>
+  ))}
+
+  {options.slice(3, 6).map((option, index) => {
+    const actualIndex = index + 3;
+    return (
+      <button
+        key={actualIndex}
+        onClick={() => setSelected(actualIndex)}
+        className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold
+          ${
+            selected === actualIndex
+              ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
+              : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
+          }`}
+      >
+        <div className="mb-2">
+          <img src={option.image} alt="icon" className="w-9 h-9 object-contain" />
+        </div>
+        <span style={{ fontWeight: "500" }}>{option.label}</span>
+      </button>
+    );
+  })}
+
+  {options.slice(6, 9).map((option, index) => {
+    const actualIndex = index + 6;
+    return (
+      <button
+        key={actualIndex}
+        onClick={() => setSelected(actualIndex)}
+        className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold
+          ${
+            selected === actualIndex
+              ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
+              : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
+          }`}
+      >
+        <div className="mb-2">
+          <img src={option.image} alt="icon" className="w-9 h-9 object-contain" />
+        </div>
+        <span style={{ fontWeight: "500" }}>{option.label}</span>
+      </button>
+    );
+  })}
+
+  {/* The extra element in column 2 */}
+  <div className="col-start-2">
+    <button
+      onClick={() => setSelected(9)}
+      className={`flex flex-col items-center justify-center rounded-xl border px-1 py-4 transition-all text-sm font-semibold
+        ${
+          selected === 9
+            ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
+            : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
+        }`}
+    >
+      <div className="mb-2">
+        <img
+          src={options[9].image}
+          alt="icon"
+          className="w-9 h-9 object-contain"
+        />
+      </div>
+      <span style={{ fontWeight: "500" }}>{options[9].label}</span>
+    </button>
+  </div>
+</div>
+
           </div>
+
           <div className="mt-8 flex justify-center lg:justify-end">
             <Link href="/r-step-4">
               <Image

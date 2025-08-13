@@ -98,20 +98,20 @@ const Step3: React.FC<Step3Props> = ({ formData, setFormData, handleNext, handle
       </div>
 
       {/* Buttons */}
-      <div className="flex justify-between " style={{marginTop:"20px",width:'874px'}}>
+      <div className="flex flex-col sm:flex-row sm:justify-between gap-4 mt-6 max-w-[650px]">
         <button
           type="button"
           onClick={handleBack}
-          className="bg-gray-300 text-gray-900 px-6 py-2 rounded-full w-[48%]"
+          className="hidden bg-gray-300 text-gray-900 px-6 py-2 rounded-full w-full sm:w-[48%]"
         >
           Back
         </button>
         <button
           type="button"
           onClick={handleNext}
-          className="bg-[#2450A0] text-white px-6 py-2 rounded-full w-[48%]"
+          className="bg-[#2450A0] text-white px-6 py-2 rounded-full w-full sm:w-[48%]"
         >
-          Save and Next
+          SUBMIT
         </button>
       </div>
     </>

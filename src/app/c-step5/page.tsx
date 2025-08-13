@@ -4,17 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Header2 from "@/components/Header2";
-import {
-  Building2,
-  Home,
-  LayoutGrid,
-  Landmark,
-  Tent,
-  Trees,
-  MapPinned,
-  Layers3,
-  Mountain,
-} from "lucide-react";
 
 export default function PropertyDetail() {
   const ownershipOptions = [
@@ -60,16 +49,13 @@ export default function PropertyDetail() {
       >
         <div className="w-[87%] mx-auto">
           {/* Title */}
-          <h2 className="font-bold">
-            <span style={{ color: "black", fontSize: "26px" }}>Property</span>
-            <span className="text-[#2450A0]" style={{ fontSize: "26px" }}>
-              {" "}
-              Details
-            </span>
+          <h2 className="font-bold text-xl md:text-[26px]">
+            <span style={{ color: "black" }}>Property</span>
+            <span className="text-[#2450A0]"> Details</span>
           </h2>
 
           {/* Subtitle */}
-          <p className="mt-3 text-[#666] text-[16px]">
+          <p className="mt-3 text-sm md:text-base text-[#666]">
             Answer a few questions and get your no-obligation cash offer in as{" "}
             <span className="font-semibold">little as 3 minutes.</span>
           </p>
@@ -78,46 +64,46 @@ export default function PropertyDetail() {
           <div className="bg-white rounded-2xl shadow-md mt-6 p-6 space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block font-semibold mb-1 text-[20px]">
+                <label className="block font-semibold mb-1 text-base md:text-[20px]">
                   Built area
                 </label>
                 <input
                   type="text"
                   placeholder="Built area"
-                  className="w-full border rounded-[20px] px-4 py-3 placeholder:text-gray-400"
+                  className="w-full border rounded-[20px] px-4 py-3 placeholder:text-gray-400 text-sm md:text-base"
                 />
               </div>
               <div>
-                <label className="block font-semibold mb-1 text-[20px]">
+                <label className="block font-semibold mb-1 text-base md:text-[20px]">
                   Area Unit <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
                   placeholder="Area Unit"
-                  className="w-full border rounded-[20px] px-4 py-3 placeholder:text-gray-400"
+                  className="w-full border rounded-[20px] px-4 py-3 placeholder:text-gray-400 text-sm md:text-base"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block font-semibold mb-1 text-[20px]">
+                <label className="block font-semibold mb-1 text-base md:text-[20px]">
                   Total area <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
                   placeholder="Total area "
-                  className="w-full border rounded-[20px] px-4 py-3 placeholder:text-gray-400"
+                  className="w-full border rounded-[20px] px-4 py-3 placeholder:text-gray-400 text-sm md:text-base"
                 />
               </div>
 
               {/* Custom Dropdown */}
               <div className="relative">
-                <label className="block font-semibold mb-1 text-[20px]">
+                <label className="block font-semibold mb-1 text-base md:text-[20px]">
                   Ownership
                 </label>
                 <div
-                  className="w-full border rounded-[20px] px-4 py-3 bg-white cursor-pointer flex justify-between items-center"
+                  className="w-full border rounded-[20px] px-4 py-3 bg-white cursor-pointer flex justify-between items-center text-sm md:text-base"
                   onClick={() => setOwnershipOpen(!ownershipOpen)}
                 >
                   <span
@@ -145,7 +131,7 @@ export default function PropertyDetail() {
                           setOwnershipValue(option);
                           setOwnershipOpen(false);
                         }}
-                        className="px-4 py-3 hover:bg-gray-100 cursor-pointer"
+                        className="px-4 py-3 hover:bg-gray-100 cursor-pointer text-sm md:text-base"
                       >
                         {option}
                       </div>
@@ -157,23 +143,23 @@ export default function PropertyDetail() {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block font-semibold mb-1 text-[20px]">
+                <label className="block font-semibold mb-1 text-base md:text-[20px]">
                   Total Floor<span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
                   placeholder="Total Floor"
-                  className="w-full border rounded-[20px] px-4 py-3 placeholder:text-gray-400"
+                  className="w-full border rounded-[20px] px-4 py-3 placeholder:text-gray-400 text-sm md:text-base"
                 />
               </div>
               <div>
-                <label className="block font-semibold mb-1 text-[20px]">
+                <label className="block font-semibold mb-1 text-base md:text-[20px]">
                   Your Floor<span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
                   placeholder="Your Floor"
-                  className="w-full border rounded-[20px] px-4 py-3 placeholder:text-gray-400"
+                  className="w-full border rounded-[20px] px-4 py-3 placeholder:text-gray-400 text-sm md:text-base"
                 />
               </div>
             </div>

@@ -56,7 +56,7 @@ const Header2 = () => {
                   />
                 </button>
                 <a
-                  href="#"
+                  href="/basic_login"
                   className="flex items-center justify-center px-5 py-2 rounded-full text-white font-semibold text-sm bg-[#2450A0] border border-[#C4D9FF]"
                 >
                   SIGN IN
@@ -118,7 +118,7 @@ const Header2 = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/basic_login"
                       className="flex items-center justify-center bg-[#2450A0] text-white font-bold text-sm px-5 py-2 rounded-full hover:bg-blue-700 transition"
                     >
                       SIGN IN

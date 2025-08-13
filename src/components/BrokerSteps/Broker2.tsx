@@ -43,7 +43,7 @@ const furnishings: FacilityItem[] = [
   { label: "Independent Floor", icon: "/Broker/independent_house.png" },
   { label: "Villa", icon: "/Broker/Raid.png" },
   { label: "Studio", icon: "/Broker/studio.png" },
-  { label: "Penthouse", icon: "/Broker/Yurt.png" },
+  { label: "Penthouse", icon: "/yurt.png" },
   { label: "Plot", icon: "/Broker/Parking.png" },
   { label: "Farm House", icon: "/Broker/Farm.png" },
   { label: "Agricultural Land", icon: "/Broker/agriculture.png" },
@@ -55,7 +55,7 @@ const societyAmenities: FacilityItem[] = [
   { label: "Showroom", icon: "/Broker/showroom.png" },
   { label: "Warehouse", icon: "/Broker/warehouse.png" },
   { label: "Plot", icon: "/Broker/Tiny.png" },
-  { label: "Others", icon: "/Broker/Yurt.png" },
+  { label: "Others", icon: "/yurt.png" },
 ];
 
 export default function Step2({
@@ -84,7 +84,8 @@ export default function Step2({
   };
 
   return (
-    <form className="space-y-5">
+    <div className="space-y-5">
+      {/* Info Banner */}
       <div className="flex items-start gap-2 bg-[#e7eef9] p-2 rounded-md w-full md:w-[600px]">
         <img
           src="/broker/icon.png"
@@ -100,7 +101,7 @@ export default function Step2({
         </p>
       </div>
 
-      {/* 🔹 Residential Section */}
+      {/* Residential Section */}
       <div className="w-full md:w-[840px]">
         <h3 className="font-semibold mb-4 text-[15px]">
           Residential<span className="text-red-500">*</span>
@@ -111,13 +112,13 @@ export default function Step2({
               key={item.label}
               type="button"
               onClick={() => toggleFacility(item.label)}
-              className={`flex flex-row md:flex-col items-center md:items-center gap-2 md:gap-0 rounded-lg p-2 sm:p-3 md:p-4 transition-all 
-          h-[60px] sm:h-[70px] md:h-[110px] 
-          ${
-            formData.commodities.includes(item.label)
-              ? "border border-[#0052CC] bg-[#EBF1FF] text-[#0052CC]"
-              : "border border-[#1218280D] bg-[#f3f3f3] text-[#121212]"
-          }`}
+              className={`relative z-10 pointer-events-auto flex flex-row md:flex-col items-center gap-2 md:gap-0 rounded-lg p-2 sm:p-3 md:p-4 transition-all 
+                h-[60px] sm:h-[70px] md:h-[110px] w-full
+                ${
+                  formData.commodities.includes(item.label)
+                    ? "border border-[#0052CC] bg-[#EBF1FF] text-[#0052CC]"
+                    : "border border-[#1218280D] bg-[#f3f3f3] text-[#121212]"
+                }`}
             >
               <img
                 src={item.icon}
@@ -129,7 +130,7 @@ export default function Step2({
                   formData.commodities.includes(item.label)
                     ? "text-[#0052CC]"
                     : "text-[rgba(113,117,128,1)]"
-                } text-[10px] sm:text-[13px] md:text-[15px]`}
+                } text-[13px] sm:text-[13px] md:text-[15px]`}
               >
                 {item.label}
               </span>
@@ -138,7 +139,7 @@ export default function Step2({
         </div>
       </div>
 
-      {/* 🔹 Commercial Section */}
+      {/* Commercial Section */}
       <div className="w-full md:w-[840px] mt-6">
         <h3 className="font-semibold mb-4 text-[15px]">
           Commercial<span className="text-red-500">*</span>
@@ -149,13 +150,13 @@ export default function Step2({
               key={item.label}
               type="button"
               onClick={() => toggleFacility(item.label)}
-              className={`flex flex-row md:flex-col items-center md:items-center gap-2 md:gap-0 rounded-lg p-2 sm:p-3 md:p-4 transition-all 
-          h-[60px] sm:h-[70px] md:h-[110px] 
-          ${
-            formData.commodities.includes(item.label)
-              ? "border border-[#0052CC] bg-[#EBF1FF] text-[#0052CC]"
-              : "border border-[#1218280D] bg-[#f3f3f3] text-[#121212]"
-          }`}
+              className={`relative z-10 pointer-events-auto flex flex-row md:flex-col items-center gap-2 md:gap-0 rounded-lg p-2 sm:p-3 md:p-4 transition-all 
+                h-[60px] sm:h-[70px] md:h-[110px] w-full
+                ${
+                  formData.commodities.includes(item.label)
+                    ? "border border-[#0052CC] bg-[#EBF1FF] text-[#0052CC]"
+                    : "border border-[#1218280D] bg-[#f3f3f3] text-[#121212]"
+                }`}
             >
               <img
                 src={item.icon}
@@ -167,7 +168,7 @@ export default function Step2({
                   formData.commodities.includes(item.label)
                     ? "text-[#0052CC]"
                     : "text-[rgba(113,117,128,1)]"
-                } text-[10px] sm:text-[12px] md:text-[15px]`}
+                } text-[13px] sm:text-[13px] md:text-[15px]`}
               >
                 {item.label}
               </span>
@@ -176,19 +177,18 @@ export default function Step2({
         </div>
       </div>
 
-      {/* 🔺 Validation Message */}
+      {/* Validation Message */}
       {formErrors.commodities && (
         <p className="text-red-500 text-sm mt-1">
           At least one commodity is required
         </p>
       )}
 
-      {/* 🔻 Navigation Buttons */}
+      {/* Navigation Buttons */}
       <div
         className="flex justify-between w-[343px] md:w-[850px]"
         style={{ marginTop: "18px" }}
       >
-        {/* Back button — sirf desktop me dikhe */}
         <button
           type="button"
           onClick={handleBack}
@@ -196,8 +196,6 @@ export default function Step2({
         >
           Back
         </button>
-
-        {/* Save and Next — har screen pe dikhe */}
         <button
           type="button"
           onClick={handleNext}
@@ -206,6 +204,6 @@ export default function Step2({
           Save and Next
         </button>
       </div>
-    </form>
+    </div>
   );
 }

@@ -183,7 +183,7 @@ export default function Page1() {
         <img
           src="/bubble1.png"
           alt="Bubble 1"
-          className="absolute top-0 right-0 w-[90px] md:w-[134px] z-0"
+          className="absolute top-0 right-0 w-[90px] md:w-[134px] z-10"
         />
       </div>
 
@@ -193,7 +193,7 @@ export default function Page1() {
       {/* Mobile Layout */}
       <div className="block lg:hidden px-4 mt-6">
         {/* Tabs */}
-        <div className="relative w-full max-w-[360px] mx-auto pt-4 z-10 mt-[150px]">
+        <div className="relative w-full max-w-[360px] mx-auto mt-[190px]">
           <div className="flex justify-between">
             <button
               onClick={() => setActiveTab("user")}
@@ -288,7 +288,7 @@ export default function Page1() {
 
             {/* Google Login */}
             <button className="w-full flex items-center justify-center border border-gray-300 rounded-2xl py-3 font-semibold hover:bg-gray-50 transition-colors">
-              <FcGoogle className="mr-2 text-xl" /> Continue with Google
+              <FcGoogle className="mr-2 text-xl " /> Continue with Google
             </button>
 
             {/* Create Account Link */}
@@ -302,7 +302,7 @@ export default function Page1() {
         )}
 
         {activeTab === "broker" && (
-          <div className="mt-[40px]">
+          <div className="mt-[60px]">
             <div
               className="w-[50px] h-[50px] flex items-center justify-center border border-[#E6E6E6] rounded-[12px] bg-white"
               style={{ border: "solid #0000001C", borderRadius: "16px" }}
@@ -368,7 +368,7 @@ export default function Page1() {
       >
         <div className="w-full max-w-[1090px] px-4 pb-[100px]">
           {/* Tabs */}
-          <div className="relative w-full max-w-[360px] mx-auto mt-5 z-10">
+          <div className="relative w-full max-w-[360px] mx-auto mt-5">
             <div className="flex justify-between">
               <button
                 onClick={() => setActiveTab("user")}
@@ -469,7 +469,7 @@ export default function Page1() {
 
               {/* Google Login */}
               <button className="w-full flex items-center justify-center border border-gray-300 rounded-2xl py-3 font-semibold hover:bg-gray-50 transition-colors">
-                <FcGoogle className="mr-2 text-xl" /> Continue with Google
+                <FcGoogle className="mr-2 text-xl " /> Continue with Google
               </button>
 
               {/* Create Account Link */}

@@ -47,7 +47,7 @@ export default function Page1() {
               style={{
                 color: "#000000",
                 fontWeight: "700",
-                fontSize: "24px",
+                fontSize: "26px",
                 lineHeight: "29px",
               }}
             >
@@ -57,7 +57,7 @@ export default function Page1() {
               style={{
                 color: "#2450A0",
                 fontWeight: "700",
-                fontSize: "24px",
+                fontSize: "26px",
                 lineHeight: "29px",
               }}
             >
@@ -80,14 +80,14 @@ export default function Page1() {
 
           {/* Property Type Selection */}
           <div
-            className="bg-white rounded-2xl shadow-md p-4 relative pb-10 mx-auto md:h-[250px] md:max-w-[45%]"
+            className="bg-white rounded-2xl shadow-md p-4 relative pb-10 mx-auto md:max-w-[70%] w-full md:h-[250px]"
             style={{ marginTop: "30px" }}
           >
-            <div className="flex flex-row justify-center gap-4 sm:gap-12 mt-10">
+            <div className="flex flex-row justify-center gap-8 sm:gap-12 lg:gap-20 mt-10">
               {/* Residential */}
               <div
                 onClick={() => setSelected("RESIDENTIAL")}
-                className={`relative md:h-[100px] h-[70px] w-[140px] sm:w-[200px] overflow-visible flex flex-col items-center justify-end pt-12 sm:pt-16 cursor-pointer transition-all duration-200 rounded-[21px]
+                className={`relative md:mt-5 md:h-[90px] h-[90px] w-[140px] sm:w-[200px] overflow-visible flex flex-col items-center justify-end pt-12 sm:pt-16 cursor-pointer transition-all duration-200 rounded-[21px]
                   ${
                     isSelected("RESIDENTIAL")
                       ? "border border-[#2450A0] bg-white"
@@ -98,8 +98,8 @@ export default function Page1() {
                 <Image
                   src="/home1.png"
                   alt="Residential"
-                  width={100}
-                  height={100}
+                  width={120}
+                  height={120}
                   className="absolute mb-4 sm:mb-6 left-1/2 -translate-x-1/2 scale-x-[-1]"
                 />
                 <p
@@ -118,7 +118,7 @@ export default function Page1() {
               {/* Commercial */}
               <div
                 onClick={() => setSelected("COMMERCIAL")}
-                className={`relative md:h-[100px] h-[70px] w-[140px] sm:w-[200px] overflow-visible flex flex-col items-center justify-end pt-12 sm:pt-16 cursor-pointer transition-all duration-200 rounded-[21px]
+                className={`relative md:mt-5 md:h-[90px] h-[90px] w-[140px] sm:w-[200px] overflow-visible flex flex-col items-center justify-end pt-12 sm:pt-16 cursor-pointer transition-all duration-200 rounded-[21px]
                   ${
                     isSelected("COMMERCIAL")
                       ? "border border-[#2450A0] bg-white"
@@ -129,8 +129,8 @@ export default function Page1() {
                 <Image
                   src="/home2.png"
                   alt="Commercial"
-                  width={100}
-                  height={100}
+                  width={120}
+                  height={120}
                   className="absolute mb-4 sm:mb-6 left-1/2 -translate-x-1/2 scale-x-[-1]"
                 />
                 <p
@@ -149,7 +149,7 @@ export default function Page1() {
             </div>
 
             {/* Property Type Tag */}
-            <div className="absolute left-1/2 -bottom-4 transform -translate-x-1/2 bg-white text-black text-sm font-semibold px-4 py-1 rounded-full shadow-md border border-gray-200">
+            <div className="absolute left-1/2 -bottom-4 transform -translate-x-1/2 bg-white text-black md:text-lg text:sm font-semibold px-4 py-1 rounded-full shadow-md border border-gray-200">
               <span
                 style={{
                   fontSize: "12px",
@@ -164,43 +164,42 @@ export default function Page1() {
           </div>
 
           {/* Location Input */}
-          <div className="mt-[40px] bg-white rounded-2xl shadow-md p-5 md:p-8 md:max-w-[45%] mx-auto">
-  <p
-    style={{
-      fontSize: "14px",
-      fontWeight: "500",
-      color: "rgba(102, 102, 102, 1)",
-    }}
-  >
-    First, enter the address of the property you're looking to sell.
-  </p>
+          <div className="mt-[40px] bg-white rounded-2xl shadow-md p-5 md:p-8 mx-auto md:max-w-[40%] w-full">
+            <p
+              style={{
+                fontSize: "14px",
+                fontWeight: "500",
+                color: "rgba(102, 102, 102, 1)",
+              }}
+            >
+              First, enter the address of the property you're looking to sell.
+            </p>
 
-  <div className="relative">
-    <input
-      type="text"
-      placeholder="Location"
-      className="w-full px-4 py-2 pr-10 border border-[#2450A0] rounded-2xl font-semibold text-gray-500 placeholder-gray-400 outline-none md:h-[50px] h-[40px] mt-5"
-    />
-    <Image
-      src="/Location.png"
-      alt="Location Icon"
-      width={24}
-      height={24}
-      className="absolute right-2 top-1/2 transform -translate-y-1/2 md:mt-2 mt-2"
-    />
-  </div>
-</div>
-
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Location"
+                className="w-full px-4 py-2 pr-10 border border-[#2450A0] rounded-2xl font-semibold text-gray-500 placeholder-gray-400 outline-none md:h-[50px] h-[40px] mt-5"
+              />
+              <Image
+                src="/Location.png"
+                alt="Location Icon"
+                width={24}
+                height={24}
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 md:mt-2 mt-2"
+              />
+            </div>
+          </div>
 
           {/* Next Button */}
-          <div className="text-right mt-4">
-            <Link href="/c-step2">
+          <div className="mt-8 flex justify-center lg:justify-end">
+            <Link href="/c-step3">
               <Image
                 src="/next.png"
                 alt="Next Step"
-                width={300}
-                height={300}
-                className="absolute mt-4 cursor-pointer left-1/2 -translate-x-1/2 lg:left-[940px] lg:translate-x-0"
+                width={350}
+                height={350}
+                className="cursor-pointer w-[250px] md:w-[300px] lg:w-[350px]"
               />
             </Link>
           </div>

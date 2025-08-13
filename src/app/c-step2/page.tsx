@@ -63,7 +63,7 @@ export default function MovingDetail() {
           {/* Question Card */}
           <div className="bg-white rounded-2xl shadow-md mt-8 p-4">
             <h3
-              className="mb-4 border-l-4 pl-3 text-lg md:text-2xl font-semibold"
+              className="mb-4 border-l-4 pl-3 text-lg md:text-2xl font-semibold max:w-3xl"
               style={{ borderColor: "#2450A0" }}
             >
               <span className="font-[600] text-[rgba(36,80,160,1)]">H</span>
@@ -102,7 +102,7 @@ export default function MovingDetail() {
                     />
                   </div>
                   <span
-                    className={`font-semibold text-sm md:text-lg ${
+                    className={`font-semibold text-sm md:text-xl ${
                       selected === index ? "text-[#2450A0]" : "text-[#757577]"
                     }`}
                   >

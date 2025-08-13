@@ -6,31 +6,31 @@ import Link from "next/link";
 import Header2 from "@/components/Header2";
 
 const furnishings = [
-  { label: "Dining Table", icon: "/facilities/1.png" },
-  { label: "Washing Machine", icon: "/facilities/2.png" },
-  { label: "Sofa", icon: "/facilities/3.png" },
-  { label: "Microwave", icon: "/facilities/4.png" },
-  { label: "Stove", icon: "/facilities/5.png" },
-  { label: "Fridge", icon: "/facilities/6.png" },
-  { label: "Water Purifier", icon: "/facilities/7.png" },
-  { label: "Gas Pipeline", icon: "/facilities/8.png" },
-  { label: "Chimney", icon: "/facilities/9.png" },
-  { label: "Modular Kitchen", icon: "/facilities/10.png" },
+  { label: "Dining Table", icon: "/facilities/SVG/1.svg" },
+  { label: "Washing Machine", icon: "/facilities/SVG/2.svg" },
+  { label: "Sofa", icon: "/facilities/SVG/3.svg" },
+  { label: "Microwave", icon: "/facilities/SVG/4.svg" },
+  { label: "Stove", icon: "/facilities/SVG/5.svg" },
+  { label: "Fridge", icon: "/facilities/SVG/6.svg" },
+  { label: "Water Purifier", icon: "/facilities/SVG/7.svg" },
+  { label: "Gas Pipeline", icon: "/facilities/SVG/8.svg" },
+  { label: "Chimney", icon: "/facilities/SVG/9.svg" },
+  { label: "Modular Kitchen", icon: "/facilities/SVG/10.svg" },
 ];
 
 const societyAmenities = [
-  { label: "Swimming Pool", icon: "/facilities/11.png" },
-  { label: "Gym", icon: "/facilities/12.png" },
-  { label: "Lift", icon: "/facilities/13.png" },
-  { label: "Intercom", icon: "/facilities/14.png" },
-  { label: "Garden", icon: "/facilities/15.png" },
-  { label: "Sport", icon: "/facilities/16.png" },
-  { label: "Kids Area", icon: "/facilities/17.png" },
-  { label: "CCTV", icon: "/facilities/18.png" },
-  { label: "Gated Community", icon: "/facilities/19.png" },
-  { label: "Club House", icon: "/facilities/20.png" },
-  { label: "Community hall", icon: "/facilities/21.png" },
-  { label: "Regular water supply", icon: "/facilities/22.png" },
+  { label: "Swimming Pool", icon: "/facilities/SVG/11.svg" },
+  { label: "Gym", icon: "/facilities/SVG/12.svg" },
+  { label: "Lift", icon: "/facilities/SVG/13.svg" },
+  { label: "Intercom", icon: "/facilities/SVG/14.svg" },
+  { label: "Garden", icon: "/facilities/SVG/15.svg" },
+  { label: "Sport", icon: "/facilities/SVG/16.svg" },
+  { label: "Kids Area", icon: "/facilities/SVG/17.svg" },
+  { label: "CCTV", icon: "/facilities/SVG/18.svg" },
+  { label: "Gated Community", icon: "/facilities/SVG/19.svg" },
+  { label: "Club House", icon: "/facilities/SVG/20.svg" },
+  { label: "Community hall", icon: "/facilities/SVG/21.svg" },
+  { label: "Regular water supply", icon: "/facilities/SVG/22.svg" },
 ];
 
 export default function FacilitiesDetail() {
@@ -63,6 +63,15 @@ export default function FacilitiesDetail() {
         * {
           font-family: "Poppins", sans-serif !important;
         }
+        /* SVG color filter styles */
+        .icon-selected {
+          filter: invert(30%) sepia(100%) saturate(500%) hue-rotate(200deg)
+            brightness(90%) contrast(90%);
+        }
+        .icon-unselected {
+          filter: invert(45%) sepia(6%) saturate(250%) hue-rotate(170deg)
+            brightness(90%) contrast(85%);
+        }
       `}</style>
 
       <div className="relative text-gray-900 bg-gray-50 min-h-screen overflow-hidden">
@@ -86,9 +95,7 @@ export default function FacilitiesDetail() {
           className="pt-[120px] pb-12 flex justify-center relative z-10"
           style={{ top: "35px", paddingBottom: "120px" }}
         >
-          {/* Align container width with header */}
           <div className="w-[87%] mx-auto px-4">
-            {/* rest of your content inside here */}
             <h2 className="text-2xl font-bold">
               <span
                 style={{
@@ -122,17 +129,17 @@ export default function FacilitiesDetail() {
 
             <div className="bg-white rounded-2xl shadow-md mt-6 p-4">
               {/* Facility Count Section */}
-               <h3
-              className="mb-4 border-l-4 pl-3 text-lg md:text-2xl font-semibold mt-mt-1"
-              style={{ borderColor: "#2450A0" }}
-            >
-              <span className="font-[700] text-[rgba(36,80,160,1)]">W</span>
-              <span className="font-[600] text-[rgba(10,9,9,1)] md:whitespace-nowrap">
-                hich facility would you like in your property?
-              </span>
-            </h3>
+              <h3
+                className="border-l-4 pl-3 mb-4 font-semibold text-base md:text-2xl whitespace-normal md:whitespace-nowrap"
+                style={{ borderColor: "#2450A0" }}
+              >
+                <span className="text-[#2450A0] font-bold">W</span>
+                <span className="text-[#0A0909] font-semibold">
+                  hich facitily have in your property?
+                </span>
+              </h3>
 
-              {[ 
+              {[
                 { label: "Bedroom", key: "bedroom" },
                 {
                   label: "Full Bathrooms",
@@ -153,29 +160,25 @@ export default function FacilitiesDetail() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex justify-between items-center rounded-xl px-4 py-3 mb-3"
+                  className="flex justify-between items-center rounded-xl px-4 py-3 mb-3 md:ml-0 -ml-6"
                 >
                   <div>
                     <div
-                      className="w-[200px] h-[45px] rounded-[9px] px-[10px] py-[10px] flex items-center space-x-2"
+                      className="md:w-[250px] w-[100%] h-[45px] rounded-[9px] px-[10px] py-[10px] flex items-center space-x-2"
                       style={{
                         background: "rgba(36, 80, 160, 0.04)",
-                        paddingTop: "10px",
-                        paddingRight: "5px",
-                        paddingBottom: "10px",
-                        paddingLeft: "10px",
                       }}
                     >
                       <div
-                        className="font-semibold text-[18px]"
+                        className="font-semibold text-[14px] md:text-[17px]"
                         style={{ fontWeight: "500" }}
                       >
                         {item.label}
                         <br />
                         <span
+                          className="text-[10px] md:text-[12px]"
                           style={{
                             color: "rgba(10, 9, 9, 0.7)",
-                            fontSize: "12px",
                             fontWeight: "400",
                           }}
                         >
@@ -184,10 +187,10 @@ export default function FacilitiesDetail() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center md:gap-2 gap-1 md:ml-0 -ml-2">
                     <button
                       onClick={() => handleCountChange(item.key, -1)}
-                      className="w-[36px] h-[36px] flex items-center justify-center border border-gray-300 text-xl"
+                      className="md:w-[36px] md:h-[36px] w-[25px] h-[25px] flex items-center justify-center border border-gray-300 text-xl"
                       style={{
                         borderRadius: "10px",
                         border: "1px solid #2450A0",
@@ -202,7 +205,7 @@ export default function FacilitiesDetail() {
                     </button>
 
                     <span
-                      className="w-[24px] h-[24px] flex items-center justify-center rounded-md bg-[#F0F2F9] text-black text-sm font-medium"
+                      className="md:w-[24px] md:h-[24px] w-[15px] h-[15px] flex items-center justify-center rounded-md bg-[#F0F2F9] text-black text-sm font-medium"
                       style={{
                         borderRadius: "10px",
                         width: "45px",
@@ -211,18 +214,15 @@ export default function FacilitiesDetail() {
                       }}
                     >
                       <span
-                        style={{
-                          fontSize: "16px",
-                          fontWeight: "500",
-                          color: "#000000",
-                        }}
+                        className="text-[13px] md:text-[16px] font-medium"
+                        style={{ color: "#000000" }}
                       >
                         {counts[item.key]}
                       </span>
                     </span>
                     <button
                       onClick={() => handleCountChange(item.key, 1)}
-                      className="w-[36px] h-[36px] flex items-center justify-center rounded-full bg-[#2450A0] text-white text-xl"
+                      className="md:w-[36px] md:h-[36px] w-[25px] h-[25px] flex items-center justify-center rounded-full bg-[#2450A0] text-white text-xl"
                       style={{ borderRadius: "10px" }}
                     >
                       +
@@ -234,34 +234,37 @@ export default function FacilitiesDetail() {
               {/* Flat Furnishings */}
               <div className="grid grid-cols-3 md:grid-cols-4 gap-4">
                 {furnishings.map((item, index) => {
+                  const isSelected = selectedFacilities.includes(item.label);
                   const isLast = index === furnishings.length - 1;
-                  const modMobile = furnishings.length % 3; // mobile ke liye
+                  const modMobile = furnishings.length % 3;
 
                   return (
                     <button
                       key={index}
                       onClick={() => toggleFacility(item.label)}
                       className={`flex flex-col items-center justify-center h-[100px] rounded-lg p-2
-          ${
-            selectedFacilities.includes(item.label)
-              ? "border border-[#0052CC] bg-[#EBF1FF] text-[#0052CC]"
-              : "border border-[#1218280D] bg-[#f3f3f3] text-[#121212]"
-          }
-          ${
-            isLast && modMobile === 1
-              ? "col-span-3 w-1/3 mx-auto md:col-span-1 md:w-full md:mx-0"
-              : "w-full"
-          }
-        `}
+                        ${
+                          isSelected
+                            ? "border border-[#0052CC] bg-[#EBF1FF] text-[#0052CC]"
+                            : "border border-[#1218280D] bg-[#f3f3f3] text-[#121212]"
+                        }
+                        ${
+                          isLast && modMobile === 1
+                            ? "col-span-3 w-1/3 mx-auto md:col-span-1 md:w-full md:mx-0"
+                            : "w-full"
+                        }
+                      `}
                     >
                       <img
                         src={item.icon}
                         alt={item.label}
-                        className="w-[40px] h-[40px]"
+                        className={`w-[40px] h-[40px] ${
+                          isSelected ? "icon-selected" : "icon-unselected"
+                        }`}
                       />
                       <span
                         className={`text-sm mt-2 font-medium ${
-                          selectedFacilities.includes(item.label)
+                          isSelected
                             ? "text-[#0052CC]"
                             : "text-[rgba(113,117,128,1)]"
                         }`}
@@ -284,44 +287,55 @@ export default function FacilitiesDetail() {
                 </h3>
 
                 <div className="grid grid-cols-3 md:grid-cols-4 gap-4">
-                  {societyAmenities.map((item, index) => (
-                    <button
-                      key={index}
-                      onClick={() => toggleFacility(item.label)}
-                      className={`flex flex-col items-center justify-center w-full h-[100px] rounded-lg p-2 ${
-                        selectedFacilities.includes(item.label)
-                          ? "border border-[#0052CC] bg-[#EBF1FF] text-[#0052CC]"
-                          : "border border-[#1218280D] bg-[#f3f3f3] text-[#121212]"
-                      }`}
-                    >
-                      <img
-                        src={item.icon}
-                        alt={item.label}
-                        className="w-[40px] h-[40px]"
-                      />
-                      <span
-                        className="text-sm mt-2 text-center"
-                        style={{ fontSize: "14px", fontWeight: "500" }}
+                  {societyAmenities.map((item, index) => {
+                    const isSelected = selectedFacilities.includes(item.label);
+                    return (
+                      <button
+                        key={index}
+                        onClick={() => toggleFacility(item.label)}
+                        className={`flex flex-col items-center justify-center w-full h-[100px] rounded-lg p-2 ${
+                          isSelected
+                            ? "border border-[#0052CC] bg-[#EBF1FF] text-[#0052CC]"
+                            : "border border-[#1218280D] bg-[#f3f3f3] text-[#121212]"
+                        }`}
                       >
-                        {item.label}
-                      </span>
-                    </button>
-                  ))}
+                        <img
+                          src={item.icon}
+                          alt={item.label}
+                          className={`w-[40px] h-[40px] ${
+                            isSelected ? "icon-selected" : "icon-unselected"
+                          }`}
+                        />
+                        <span
+                          className="text-sm mt-2 text-center"
+                          style={{
+                            fontSize: "14px",
+                            fontWeight: "500",
+                            color: isSelected
+                              ? "#0052CC"
+                              : "rgba(113,117,128,1)",
+                          }}
+                        >
+                          {item.label}
+                        </span>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             </div>
 
             <div className="mt-8 flex justify-center lg:justify-end">
-            <Link href="/r-step6">
-              <Image
-                src="/next.png"
-                alt="Next Step"
-                width={350}
-                height={350}
-                className="cursor-pointer w-[250px] md:w-[300px] lg:w-[350px]"
-              />
-            </Link>
-          </div>
+              <Link href="#">
+                <Image
+                  src="/next.png"
+                  alt="Next Step"
+                  width={350}
+                  height={350}
+                  className="cursor-pointer w-[250px] md:w-[300px] lg:w-[350px]"
+                />
+              </Link>
+            </div>
           </div>
         </main>
       </div>

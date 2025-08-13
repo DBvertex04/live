@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 
@@ -156,6 +154,7 @@ const Step1: React.FC<Step1Props> = ({
             checked={formData.agreedToTerms}
             onChange={handleCheckbox}
             className="h-4 w-4 text-[#2450A0] border-gray-300 rounded"
+            style={{ zIndex: 10 }}
           />
           <p className="text-sm">
             I agree to the Broker{" "}
@@ -184,11 +183,11 @@ const Step1: React.FC<Step1Props> = ({
       {/* Desktop View */}
       <form className="hidden lg:grid grid-cols-2 gap-6 max-w-4xl mx-auto">
         <div>
-          <label className="block text-md font-semibold">
+          <label className="block text-lg font-semibold">
             Enter your first name<span className="text-red-500">*</span>
           </label>
           <input
-            style={{ width: "350px" }}
+            style={{ width: "420px", height: "50px" }}
             type="text"
             name="firstName"
             value={formData.firstName}
@@ -204,11 +203,11 @@ const Step1: React.FC<Step1Props> = ({
         </div>
 
         <div>
-          <label className="block text-md font-semibold">
+          <label className="block text-lg font-semibold">
             Enter your last name<span className="text-red-500">*</span>
           </label>
           <input
-            style={{ width: "350px" }}
+            style={{ width: "420px", height: "50px" }}
             type="text"
             name="lastName"
             value={formData.lastName}
@@ -224,11 +223,11 @@ const Step1: React.FC<Step1Props> = ({
         </div>
 
         <div>
-          <label className="block text-md font-semibold">
+          <label className="block text-lg font-semibold">
             Enter your phone number<span className="text-red-500">*</span>
           </label>
           <input
-            style={{ width: "350px" }}
+            style={{ width: "420px", height: "50px" }}
             type="tel"
             name="phone"
             value={formData.phone}
@@ -244,11 +243,11 @@ const Step1: React.FC<Step1Props> = ({
         </div>
 
         <div>
-          <label className="block text-md font-semibold">
+          <label className="block text-lg font-semibold">
             Enter your email<span className="text-red-500">*</span>
           </label>
           <input
-            style={{ width: "350px" }}
+            style={{ width: "420px", height: "50px" }}
             type="email"
             name="email"
             value={formData.email}
@@ -264,11 +263,11 @@ const Step1: React.FC<Step1Props> = ({
         </div>
 
         <div>
-          <label className="block text-md font-semibold">
+          <label className="block text-lg font-semibold">
             Enter your firm name (optional)
           </label>
           <input
-            style={{ width: "350px" }}
+            style={{ width: "420px", height: "50px" }}
             type="text"
             name="firmName"
             value={formData.firmName || ""}
@@ -278,8 +277,8 @@ const Step1: React.FC<Step1Props> = ({
           />
         </div>
 
-        <div className="relative w-fit">
-          <label className="block text-md font-semibold mb-1">
+        <div className="relative">
+          <label className="block text-lg font-semibold mb-1">
             Enter Office Address (optional)
           </label>
           <div className="relative">
@@ -288,11 +287,11 @@ const Step1: React.FC<Step1Props> = ({
               name="officeAddress"
               value={formData.officeAddress || ""}
               onChange={handleChange}
-              placeholder="Ex. DLF Cyber City, Tower 10, Phase II"
-              style={{ width: "350px" }}
+              placeholder="Ex. DLF Cyber City"
+              style={{ width: "420px", height: "50px" }}
               className="w-full border border-gray-300 rounded-2xl p-2 pr-10"
             />
-            <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+            <span className="absolute right-6 top-1/2 transform -translate-y-1/2 text-gray-400">
               <img
                 src="/broker/location.webp"
                 alt="Location Icon"
@@ -309,9 +308,9 @@ const Step1: React.FC<Step1Props> = ({
             checked={formData.agreedToTerms}
             onChange={handleCheckbox}
             className="h-4 w-4 text-[#2450A0] border-gray-300 rounded"
+            style={{ zIndex: 10, position: "relative" }}
           />
-          
-          <p className="text-sm">
+          <p className="text-md">
             I agree to the Broker{" "}
             <Link href="#" className="text-[#2450a0] underline">
               Terms & Conditions
@@ -326,7 +325,6 @@ const Step1: React.FC<Step1Props> = ({
 
         <div className="col-span-2 text-right">
           <button
-            style={{ marginRight: "147px" }}
             type="button"
             onClick={handleNext}
             className="bg-[#2450A0] text-white px-6 py-2 rounded-full w-full md:w-[40%]"

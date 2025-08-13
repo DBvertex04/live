@@ -6,7 +6,6 @@ import Link from "next/link";
 import Header2 from "@/components/Header2";
 
 export default function PropertyTypeSelection() {
-  // Keep "Other" last
   const options = [
     { label: "Office", image: "/office.png" },
     { label: "Retail shop", image: "/retail.png" },
@@ -21,7 +20,7 @@ export default function PropertyTypeSelection() {
   const [error, setError] = useState("");
   const [selected, setSelected] = useState(0);
 
-  const handleNextClick = (e: { preventDefault: () => void }) => {
+  const handleNextClick = (e: { preventDefault: () => void; }) => {
     if (selectedOption === "Other" && otherText.trim() === "") {
       e.preventDefault();
       setError("Please enter the property type.");
@@ -35,13 +34,13 @@ export default function PropertyTypeSelection() {
       className="relative text-gray-900 bg-gray-50 min-h-screen overflow-hidden"
       style={{ fontFamily: "'Poppins', sans-serif" }}
     >
-      {/* Google Fonts: Poppins */}
+      {/* Google Fonts */}
       <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet"
       />
 
-      {/* Bubble Backgrounds */}
+      {/* Background */}
       <div className="relative">
         <img
           src="/bubble.png"
@@ -78,7 +77,7 @@ export default function PropertyTypeSelection() {
             <span className="font-semibold">little as 3 minutes.</span>
           </p>
 
-          {/* Question Card */}
+          {/* Card */}
           <div className="bg-white rounded-2xl shadow-md mt-10 p-4">
             <h3
               className="border-l-4 pl-3 mb-4 font-semibold text-base md:text-2xl whitespace-normal md:whitespace-nowrap"
@@ -90,60 +89,90 @@ export default function PropertyTypeSelection() {
               </span>
             </h3>
 
-            {/* First row grid for first 5 options */}
-            <div className="grid grid-cols-3 lg:grid-cols-5 gap-3 justify-center items-center">
-              {options.slice(0, 5).map((option, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setSelected(index);
-                    setSelectedOption(option.label);
-                  }}
-                  className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold
-                    ${
-                      selected === index
-                        ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
-                        : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
-                    }
-                  `}
-                >
-                  <div className="mb-2">
-                    <img src={option.image} alt="icon" />
-                  </div>
-                  <span className="font-medium text-sm md:text-base">
-                    {option.label}
-                  </span>
-                </button>
-              ))}
+            {/* Mobile: 2 rows × 3 cols, Desktop: old layout */}
+            <div className="block lg:hidden">
+              <div className="grid grid-cols-3 gap-3">
+                {options.slice(0, 6).map((option, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      setSelected(index);
+                      setSelectedOption(option.label);
+                    }}
+                    className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold
+                      ${
+                        selected === index
+                          ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
+                          : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
+                      }
+                    `}
+                  >
+                    <div className="mb-2">
+                      <img src={option.image} alt="icon" />
+                    </div>
+                    <span className="font-medium text-sm">
+                      {option.label}
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
 
-            {/* Second row with only "Other" centered */}
-<div className="grid grid-cols-3 lg:grid-cols-5 mt-3">
-  <div className="col-start-2 lg:col-start-3 col-span-1 flex justify-center">
-    <button
-      onClick={() => {
-        setSelected(5);
-        setSelectedOption("Other");
-      }}
-      className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold w-full
-        ${
-          selected === 5
-            ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
-            : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
-        }
-      `}
-      style={{ maxWidth: '100%' }}
-    >
-      <div className="mb-2">
-        <img src="/others.png" alt="Other icon" />
-      </div>
-      <span className="font-medium text-sm md:text-base">Other</span>
-    </button>
-  </div>
-</div>
+            {/* Desktop layout */}
+            <div className="hidden lg:block">
+              {/* First row */}
+              <div className="grid grid-cols-5 gap-3">
+                {options.slice(0, 5).map((option, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      setSelected(index);
+                      setSelectedOption(option.label);
+                    }}
+                    className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold
+                      ${
+                        selected === index
+                          ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
+                          : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
+                      }
+                    `}
+                  >
+                    <div className="mb-2">
+                      <img src={option.image} alt="icon" />
+                    </div>
+                    <span className="font-medium text-base">
+                      {option.label}
+                    </span>
+                  </button>
+                ))}
+              </div>
 
+              {/* Second row: Other centered */}
+              <div className="grid grid-cols-5 mt-3">
+                <div className="col-start-3 flex justify-center">
+                  <button
+                    onClick={() => {
+                      setSelected(5);
+                      setSelectedOption("Other");
+                    }}
+                    className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold w-full
+                      ${
+                        selected === 5
+                          ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
+                          : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
+                      }
+                    `}
+                  >
+                    <div className="mb-2">
+                      <img src="/others.png" alt="Other icon" />
+                    </div>
+                    <span className="font-medium text-base">Other</span>
+                  </button>
+                </div>
+              </div>
+            </div>
 
-            {/* Show Other field only if selected */}
+            {/* Show "Other" input */}
             {selectedOption === "Other" && (
               <div className="mt-6">
                 <label className="block mb-1 text-[16px] font-medium text-[#0A0909]">
@@ -154,7 +183,7 @@ export default function PropertyTypeSelection() {
                   placeholder="Please Specify"
                   value={otherText}
                   onChange={(e) => setOtherText(e.target.value)}
-                  className={`mt-1 w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-2 ${
+                  className={`mt-1 border rounded-md px-4 py-2 focus:outline-none focus:ring-2 ${
                     error
                       ? "border-red-500 focus:ring-red-500"
                       : "border-gray-300 focus:ring-[#2450A0]"
@@ -173,7 +202,7 @@ export default function PropertyTypeSelection() {
 
           {/* Next Button */}
           <div className="mt-8 flex justify-center lg:justify-end">
-            <Link href="/c-step5">
+            <Link href="/c-step5" onClick={handleNextClick}>
               <Image
                 src="/next.png"
                 alt="Next Step"
