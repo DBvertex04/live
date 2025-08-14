@@ -13,6 +13,15 @@ export default function PropertyTypeSelection() {
     { label: "Warehouse", image: "/warehouse.png" },
     { label: "Plot", image: "/plot.png" },
     { label: "Other", image: "/others.png" },
+    { label: "Office", image: "/Broker/office.png" },
+    { label: "Retail Shop", image: "/Broker/office.png" },
+    { label: "Showroom", image: "/Broker/showroom.png" },
+    { label: "Warehouse", image: "/Broker/warehouse.png" },
+    { label: "Plot", image: "/Broker/Tiny.png" },
+    { label: "Others", image: "/yurt.png" },
+    { label: "Warehouse", image: "/warehouse.png" },
+    { label: "Plot", image: "/plot.png" },
+    { label: "Other", image: "/others.png" },
   ];
 
   const [selectedOption, setSelectedOption] = useState("Office");
@@ -20,7 +29,7 @@ export default function PropertyTypeSelection() {
   const [error, setError] = useState("");
   const [selected, setSelected] = useState(0);
 
-  const handleNextClick = (e: { preventDefault: () => void; }) => {
+  const handleNextClick = (e: { preventDefault: () => void }) => {
     if (selectedOption === "Other" && otherText.trim() === "") {
       e.preventDefault();
       setError("Please enter the property type.");
@@ -89,17 +98,17 @@ export default function PropertyTypeSelection() {
               </span>
             </h3>
 
-            {/* Mobile: 2 rows × 3 cols, Desktop: old layout */}
-            <div className="block lg:hidden">
-              <div className="grid grid-cols-3 gap-3">
-                {options.slice(0, 6).map((option, index) => (
+            {/* Scrollable list */}
+            <div className="max-h-[400px] overflow-y-auto pr-1">
+              <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3">
+                {options.map((option, index) => (
                   <button
                     key={index}
                     onClick={() => {
                       setSelected(index);
                       setSelectedOption(option.label);
                     }}
-                    className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold
+                    className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all
                       ${
                         selected === index
                           ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
@@ -108,67 +117,17 @@ export default function PropertyTypeSelection() {
                     `}
                   >
                     <div className="mb-2">
-                      <img src={option.image} alt="icon" />
+                      <img
+                        src={option.image}
+                        alt={option.label}
+                        className="w-12 h-12 object-contain"
+                      />
                     </div>
-                    <span className="font-medium text-sm">
+                    <span className="font-medium text-sm lg:text-base text-center">
                       {option.label}
                     </span>
                   </button>
                 ))}
-              </div>
-            </div>
-
-            {/* Desktop layout */}
-            <div className="hidden lg:block">
-              {/* First row */}
-              <div className="grid grid-cols-5 gap-3">
-                {options.slice(0, 5).map((option, index) => (
-                  <button
-                    key={index}
-                    onClick={() => {
-                      setSelected(index);
-                      setSelectedOption(option.label);
-                    }}
-                    className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold
-                      ${
-                        selected === index
-                          ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
-                          : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
-                      }
-                    `}
-                  >
-                    <div className="mb-2">
-                      <img src={option.image} alt="icon" />
-                    </div>
-                    <span className="font-medium text-base">
-                      {option.label}
-                    </span>
-                  </button>
-                ))}
-              </div>
-
-              {/* Second row: Other centered */}
-              <div className="grid grid-cols-5 mt-3">
-                <div className="col-start-3 flex justify-center">
-                  <button
-                    onClick={() => {
-                      setSelected(5);
-                      setSelectedOption("Other");
-                    }}
-                    className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold w-full
-                      ${
-                        selected === 5
-                          ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
-                          : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
-                      }
-                    `}
-                  >
-                    <div className="mb-2">
-                      <img src="/others.png" alt="Other icon" />
-                    </div>
-                    <span className="font-medium text-base">Other</span>
-                  </button>
-                </div>
               </div>
             </div>
 
@@ -189,7 +148,7 @@ export default function PropertyTypeSelection() {
                       : "border-gray-300 focus:ring-[#2450A0]"
                   }`}
                   style={{
-                    width: "309px",
+                    width: "300px",
                     height: "50px",
                     borderRadius: "19px",
                     paddingTop: "13px",

@@ -37,25 +37,25 @@ interface Step2Props {
 }
 
 const furnishings: FacilityItem[] = [
-  { label: "Apartment", icon: "/Broker/Apartment.png" },
-  { label: "Independent House", icon: "/Broker/house.png" },
-  { label: "Duplex", icon: "/Broker/duplex.png" },
-  { label: "Independent Floor", icon: "/Broker/independent_house.png" },
-  { label: "Villa", icon: "/Broker/Raid.png" },
-  { label: "Studio", icon: "/Broker/studio.png" },
-  { label: "Penthouse", icon: "/yurt.png" },
-  { label: "Plot", icon: "/Broker/Parking.png" },
-  { label: "Farm House", icon: "/Broker/Farm.png" },
-  { label: "Agricultural Land", icon: "/Broker/agriculture.png" },
+  { label: "Apartment", icon: "/Broker/Apartment.svg" },
+  { label: "Independent House", icon: "/Broker/House (1).svg" },
+  { label: "Duplex", icon: "/Broker/Casa particular.svg" },
+  { label: "Independent Floor", icon: "/Broker/Tiny home.svg" },
+  { label: "Villa", icon: "/Broker/Raid.svg" },
+  { label: "Studio", icon: "/Broker/Frame.svg" },
+  { label: "Penthouse", icon: "/Broker/Yurt.svg" },
+  { label: "Plot", icon: "/Broker/Parking (1).svg" },
+  { label: "Farm House", icon: "/Broker/Farm.svg" },
+  { label: "Agricultural Land", icon: "/Broker/Parking (2).svg" },
 ];
 
 const societyAmenities: FacilityItem[] = [
-  { label: "Office", icon: "/Broker/office.png" },
-  { label: "Retail Shop", icon: "/Broker/Group.png" },
-  { label: "Showroom", icon: "/Broker/showroom.png" },
-  { label: "Warehouse", icon: "/Broker/warehouse.png" },
-  { label: "Plot", icon: "/Broker/Tiny.png" },
-  { label: "Others", icon: "/yurt.png" },
+  { label: "Office", icon: "/Broker/Apartment.svg" },
+  { label: "Retail Shop", icon: "/Broker/Parking (1).svg" },
+  { label: "Showroom", icon: "/Broker/Casa particular.svg" },
+  { label: "Warehouse", icon: "/Broker/Raid.svg" },
+  { label: "Plot", icon: "/Broker/Tiny home.svg" },
+  { label: "Others", icon: "/Broker/Yurt.svg" },
 ];
 
 export default function Step2({
@@ -84,9 +84,9 @@ export default function Step2({
   };
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-5 ">
       {/* Info Banner */}
-      <div className="flex items-start gap-2 bg-[#e7eef9] p-2 rounded-md w-full md:w-[600px]">
+      <div className="flex items-start gap-2 bg-[#e7eef9] p-2 rounded-md w-full md:w-[600px] ">
         <img
           src="/broker/icon.png"
           alt="Info Icon"
@@ -113,11 +113,11 @@ export default function Step2({
               type="button"
               onClick={() => toggleFacility(item.label)}
               className={`relative z-10 pointer-events-auto flex flex-row md:flex-col items-center gap-2 md:gap-0 rounded-lg p-2 sm:p-3 md:p-4 transition-all 
-                h-[60px] sm:h-[70px] md:h-[110px] w-full
+                h-[50px] sm:h-[50px] md:h-[110px] w-full
                 ${
                   formData.commodities.includes(item.label)
                     ? "border border-[#0052CC] bg-[#EBF1FF] text-[#0052CC]"
-                    : "border border-[#1218280D] bg-[#f3f3f3] text-[#121212]"
+                    : "border border-[#1218280D] bg-[#f3f3f3] text-[#131313]"
                 }`}
             >
               <img
@@ -129,7 +129,7 @@ export default function Step2({
                 className={`font-medium text-left md:text-center ${
                   formData.commodities.includes(item.label)
                     ? "text-[#0052CC]"
-                    : "text-[rgba(113,117,128,1)]"
+                    : "text-[#313131]"
                 } text-[13px] sm:text-[13px] md:text-[15px]`}
               >
                 {item.label}
@@ -151,7 +151,7 @@ export default function Step2({
               type="button"
               onClick={() => toggleFacility(item.label)}
               className={`relative z-10 pointer-events-auto flex flex-row md:flex-col items-center gap-2 md:gap-0 rounded-lg p-2 sm:p-3 md:p-4 transition-all 
-                h-[60px] sm:h-[70px] md:h-[110px] w-full
+                h-[50px] sm:h-[50px] md:h-[110px] w-full
                 ${
                   formData.commodities.includes(item.label)
                     ? "border border-[#0052CC] bg-[#EBF1FF] text-[#0052CC]"
@@ -167,7 +167,7 @@ export default function Step2({
                 className={`font-medium text-left md:text-center ${
                   formData.commodities.includes(item.label)
                     ? "text-[#0052CC]"
-                    : "text-[rgba(113,117,128,1)]"
+                    : "text-[#313131]"
                 } text-[13px] sm:text-[13px] md:text-[15px]`}
               >
                 {item.label}
@@ -199,7 +199,7 @@ export default function Step2({
         <button
           type="button"
           onClick={handleNext}
-          className="bg-[#2450A0] text-white px-6 py-2 rounded-full md:w-[48%] w-full"
+          className="bg-[#2450A0] text-white px-6 py-2 rounded-full md:w-[48%] w-full md:mb-0 mb-8"
         >
           Save and Next
         </button>

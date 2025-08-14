@@ -193,8 +193,8 @@ export default function Page1() {
       {/* Mobile Layout */}
       <div className="block lg:hidden px-4 mt-6">
         {/* Tabs */}
-        <div className="relative w-full max-w-[360px] mx-auto mt-[190px]">
-          <div className="flex justify-between">
+        <div className="relative w-full max-w-[360px] mx-auto mt-[270px]">
+          <div className="flex justify-between mt-[-50px]">
             <button
               onClick={() => setActiveTab("user")}
               className="w-1/2 text-center pb-2"
@@ -234,71 +234,76 @@ export default function Page1() {
 
         {/* Mobile Content */}
         {activeTab === "user" && (
-          <div className="mt-[40px]">
-            <h2 className="text-2xl font-bold text-left">Register</h2>
-            <p className="text-gray-600 text-left mt-1">Welcome to the app</p>
-
-            {/* Inputs */}
-            <div className="mt-6 space-y-4">
-              <div>
-                <label className="block text-md font-semibold text-black mb-1">
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Full Name"
-                  className="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2450A0]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-md font-semibold text-black mb-1">
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  className="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2450A0]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-md font-semibold text-black mb-1">
-                  Mobile Number / Email
-                </label>
-                <input
-                  type="text"
-                  placeholder="Mobile Number / Email"
-                  className="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2450A0]"
-                />
-              </div>
+          <>
+            <div className="mt-[-95px]">
+              <h2 className="text-2xl font-bold text-left">Register</h2>
+              <p className="text-gray-600 text-left mt-1">Welcome to the app</p>
             </div>
+            <div className="mt-[60px]">
+              {/* Inputs */}
+              <div className="mt-6 space-y-4">
+                <div>
+                  <label className="block text-md font-semibold text-black mb-1">
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Full Name"
+                    className="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2450A0]"
+                  />
+                </div>
 
-            {/* Login Button */}
-            <button className="mt-6 w-full bg-[#2450A0] text-white font-bold py-3 rounded-lg hover:bg-[#1d3f80] transition-colors">
-              LOGIN →
-            </button>
+                <div>
+                  <label className="block text-md font-semibold text-black mb-1">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Last Name"
+                    className="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2450A0]"
+                  />
+                </div>
 
-            {/* OR Divider */}
-            <div className="flex items-center my-6">
-              <div className="flex-1 h-px bg-gray-300"></div>
-              <span className="px-3 text-gray-500 text-sm">or</span>
-              <div className="flex-1 h-px bg-gray-300"></div>
+                <div>
+                  <label className="block text-md font-semibold text-black mb-1">
+                    Mobile Number / Email
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Mobile Number / Email"
+                    className="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2450A0]"
+                  />
+                </div>
+              </div>
+
+              {/* Login Button */}
+              <button className="mt-6 w-full bg-[#2450A0] text-white font-bold py-3 rounded-lg hover:bg-[#1d3f80] transition-colors">
+                LOGIN →
+              </button>
+
+              {/* OR Divider */}
+              <div className="flex items-center justify-center my-6">
+                <div className="w-17 h-px bg-gray-500"></div>
+                <span className="px-3 text-gray-500 text-sm">OR</span>
+                <div className="w-17 h-px bg-gray-500"></div>
+              </div>
+
+              {/* Google Login */}
+              <Link href="/continue_with_google">
+  <button className="w-full flex items-center justify-center border border-gray-300 rounded-2xl py-3 font-semibold hover:bg-gray-50 transition-colors">
+    <FcGoogle className="mr-2 text-xl" /> Continue with Google
+  </button>
+</Link>
+
+              {/* Create Account Link */}
+              <p className="text-center mt-6 text-md text-gray-900 font-semibold">
+                Don’t have Account?{" "}
+                <Link href="#" className="text-[#2450A0] font-semibold">
+                  Create New
+                </Link>
+              </p>
             </div>
-
-            {/* Google Login */}
-            <button className="w-full flex items-center justify-center border border-gray-300 rounded-2xl py-3 font-semibold hover:bg-gray-50 transition-colors">
-              <FcGoogle className="mr-2 text-xl " /> Continue with Google
-            </button>
-
-            {/* Create Account Link */}
-            <p className="text-center mt-6 text-md text-gray-900 font-semibold">
-              Don’t have Account?{" "}
-              <Link href="#" className="text-[#2450A0] font-semibold">
-                Create New
-              </Link>
-            </p>
-          </div>
+          </>
         )}
 
         {activeTab === "broker" && (
@@ -320,7 +325,17 @@ export default function Page1() {
             </p>
 
             <div className="relative grid grid-cols-4 gap-[40px] mb-6">
+              {/* Full gray line */}
               <div className="absolute top-[4px] left-[6px] right-[6px] h-1 bg-gray-300 z-0" />
+
+              {/* Blue progress line */}
+              <div
+                className="absolute top-[4px] left-[6px] h-1 bg-[#2450A0] z-0 transition-all duration-300"
+                style={{
+                  width: `${(currentStep / (steps.length - 1)) * 100}%`,
+                }}
+              />
+
               {steps.map((step, index) => {
                 const isCompleted = index < currentStep;
                 const isCurrent = index === currentStep;
@@ -459,19 +474,18 @@ export default function Page1() {
               <button className="mt-6 w-full bg-[#2450A0] text-white font-bold py-3 rounded-lg hover:bg-[#1d3f80] transition-colors">
                 LOGIN →
               </button>
-
               {/* OR Divider */}
-              <div className="flex items-center my-6">
-                <div className="flex-1 h-px bg-gray-300"></div>
-                <span className="px-3 text-gray-500 text-sm">or</span>
-                <div className="flex-1 h-px bg-gray-300"></div>
+              <div className="w-full flex justify-center my-6 items-center">
+                <div className="w-13 md:w-28 h-px bg-gray-500"></div>
+                <span className="px-3 text-gray-500 text-sm">OR</span>
+                <div className="w-13 md:w-28 h-px bg-gray-500"></div>
               </div>
-
               {/* Google Login */}
-              <button className="w-full flex items-center justify-center border border-gray-300 rounded-2xl py-3 font-semibold hover:bg-gray-50 transition-colors">
-                <FcGoogle className="mr-2 text-xl " /> Continue with Google
-              </button>
-
+              <Link href="/continue_with_google">
+  <button className="w-full flex items-center justify-center border border-gray-300 rounded-2xl py-3 font-semibold hover:bg-gray-50 transition-colors">
+    <FcGoogle className="mr-2 text-xl" /> Continue with Google
+  </button>
+</Link>
               {/* Create Account Link */}
               <p className="text-center mt-6 text-md text-gray-900 font-semibold">
                 Don’t have Account?{" "}
@@ -481,14 +495,20 @@ export default function Page1() {
               </p>
             </div>
           )}
-
           {/* Broker Tab Content */}
           {activeTab === "broker" && (
             <div className="max-w-[1388px] mx-0 grid grid-cols-[449px_1fr] mt-8">
               {/* Sidebar Stepper */}
               <div className="relative p-6">
-                <ul className="relative ml-[-180px] mt-4 space-y-8">
-                  <div className="absolute left-[33px] top-0 w-[2px] h-full bg-gray-300 z-0" />
+                <ul className="relative ml-[-180px] -mt-3 space-y-8">
+                  {/* Connecting line */}
+                  <div
+                    className="absolute top-0 w-[2px] md:h-[90%] bg-gray-300 z-0"
+                    style={{
+                      right: "90%",
+                      transform: "translateX(-50%)", // Center the line
+                    }}
+                  />
                   {steps.map((step, i) => {
                     const isActiveOrCompleted = i <= currentStep;
                     return (
@@ -501,14 +521,18 @@ export default function Page1() {
                         }`}
                         style={{ width: "250px" }}
                       >
+                        {/* Circle */}
                         <div
-                          className={`w-10 h-10 rounded-full ${
+                          className={`flex items-center justify-center rounded-full overflow-hidden ${
                             isActiveOrCompleted
                               ? "bg-[#f4f5f8]"
-                              : "bg-white border border-gray-300 group-hover:border-[#2450A0]"
-                          } flex items-center justify-center`}
+                              : "bg-white border-2 border-gray-300 group-hover:border-[#2450A0]"
+                          }`}
                           style={{
-                            width: i === 2 ? "63px" : i === 3 ? "41px" : "46px",
+                            width: "100px",
+                            height: "80px",
+                            minWidth: "80px",
+                            minHeight: "80px",
                           }}
                         >
                           <Image
@@ -516,11 +540,13 @@ export default function Page1() {
                               isActiveOrCompleted ? "blue" : "gray"
                             }.svg`}
                             alt={`Step ${i + 1}`}
-                            width={40}
-                            height={40}
-                            style={{ width: "150px", height: "150px" }}
+                            width={50}
+                            height={50}
+                            style={{ objectFit: "contain" }}
                           />
                         </div>
+
+                        {/* Step Label */}
                         <p
                           className={`font-bold ${
                             isActiveOrCompleted
@@ -549,7 +575,6 @@ export default function Page1() {
                   </p>
                 </div>
               </div>
-
               {/* Step Content */}
               <div
                 className="bg-white rounded-[35px] shadow-md p-10 ml-[-170px]"
@@ -563,7 +588,6 @@ export default function Page1() {
                   Specializing in connecting buyers, sellers, and investors with
                   the right opportunities.
                 </p>
-
                 {renderStep()}
               </div>
             </div>

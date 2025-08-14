@@ -34,7 +34,7 @@ const Step1: React.FC<Step1Props> = ({
     <>
       {/* Mobile View */}
       <form className="space-y-5 lg:hidden max-w-md mx-auto px-4">
-        <div>
+        <div className="mt-10">
           <label className="block font-semibold text-[14px]">
             Enter your first name<span className="text-red-500">*</span>
           </label>
@@ -169,7 +169,7 @@ const Step1: React.FC<Step1Props> = ({
           </p>
         )}
 
-        <div className="text-center">
+        <div className="text-center mb-8">
           <button
             type="button"
             onClick={handleNext}
@@ -323,11 +323,11 @@ const Step1: React.FC<Step1Props> = ({
           </p>
         )}
 
-        <div className="col-span-2 text-right">
+        <div className="col-span-2 text-center ">
           <button
             type="button"
             onClick={handleNext}
-            className="bg-[#2450A0] text-white px-6 py-2 rounded-full w-full md:w-[40%]"
+            className="bg-[#2450A0] text-white px-6 py-2 rounded-full w-full md:w-[50%] md:h-[50px] md:mt-10"
           >
             Save and Next
           </button>

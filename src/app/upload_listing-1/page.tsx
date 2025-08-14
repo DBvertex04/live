@@ -6,8 +6,8 @@ import Header2 from "@/components/Header2";
 export default function Uploadlisting() {
   const [showMoreImages, setShowMoreImages] = useState(false);
 
-  const baseImages = ["img1", "img2", "img3", "img4", "img5"];
-  const extraImages = ["img4", "img5", "img2"]; // You can adjust these
+  const baseImages = ["img1", "img2", "img3", "img4", "img5", "img1", "img2", "img3"];
+  const extraImages = ["img4", "img5", "img2","img3","img5","img2"];
   const overlayImage = "img6";
 
   return (
@@ -38,10 +38,9 @@ export default function Uploadlisting() {
       <Header2 />
 
       <main
-        className="pt-[120px] pb-12 flex justify-center relative z-10"
-        style={{ top: "35px" }}
-      >
-        <div className="w-full px-4" style={{ maxWidth: "1090px" }}>
+         className="pt-[120px] pb-12 flex justify-center relative z-10" style={{ top: "35px" }}>
+      
+        <div className="w-full px-4 md:w-[87%] mx-auto">
           {/* Icon + Title */}
           <div
             className="w-[50px] h-[50px] flex items-center justify-center border border-[#E6E6E6] rounded-[12px] bg-white"
@@ -81,10 +80,7 @@ export default function Uploadlisting() {
             </label>
 
             {/* Image Grid */}
-            <div
-              className="grid grid-cols-3 gap-2 sm:gap-3"
-              style={{ maxWidth: "100%" }}
-            >
+            <div className="grid grid-cols-4 gap-2 sm:gap-3" style={{ maxWidth: "100%" }}>
               {baseImages.map((img, index) => (
                 <img
                   key={index}
@@ -175,7 +171,6 @@ export default function Uploadlisting() {
                     onChange={(e) => {
                       const files = e.target.files;
                       console.log("Selected files:", files);
-                      // Add your file upload logic here
                     }}
                   />
                 </div>

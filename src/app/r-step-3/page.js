@@ -17,6 +17,14 @@ export default function PropertyTypeSelection() {
     { label: "Land", image: "/land.png" },
     { label: "Farm House", image: "/farm.png" },
     { label: "Agricultural Land", image: "/Parking.png" },
+    { label: "Apartment", image: "/apartment (2).png" },
+    { label: "Independent House", image: "/group.png" },
+    { label: "Builder Floor", image: "/buiding_floor.png" },
+    { label: "Villa", image: "/villa.png" },
+    { label: "Penthouse", image: "/pentahouse.png" },
+    { label: "Studio", image: "/studio.png" },
+    { label: "Plot", image: "/plot.png" },
+    { label: "Land", image: "/land.png" },
   ];
 
   const [selected, setSelected] = useState(0);
@@ -26,7 +34,7 @@ export default function PropertyTypeSelection() {
       className="relative text-gray-900 bg-gray-50 min-h-screen overflow-hidden"
       style={{ fontFamily: "'Poppins', sans-serif" }}
     >
-      {/* Google Fonts: Poppins */}
+      {/* Google Fonts */}
       <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet"
@@ -95,124 +103,55 @@ export default function PropertyTypeSelection() {
               </span>
             </h3>
 
-            {/* Mobile: custom 3x3 grid with 2nd column having 4 items */}
-            <div className="hidden lg:grid grid-cols-4 gap-3">
-              {options.map((option, index) => {
-                const isLastTwo = index >= options.length - 2;
-                const colStartClass =
-                  isLastTwo && index === options.length - 2 ? "col-start-2" : "";
-
-                return (
-                  <button
-                    key={index}
-                    onClick={() => setSelected(index)}
-                    className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold
-                      ${
-                        selected === index
-                          ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
-                          : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
-                      }
-                      ${colStartClass}`}
-                  >
-                    <div className="mb-2">
-                      <img
-                        src={option.image}
-                        alt="icon"
-                        className="w-9 h-6 object-contain"
-                      />
-                    </div>
-                    <span style={{ fontWeight: "500" }}>{option.label}</span>
-                  </button>
-                );
-              })}
+            {/* Desktop layout: exactly 6 columns */}
+            <div className="hidden lg:grid grid-cols-6 gap-3">
+              {options.map((option, index) => (
+                <button
+                  key={index}
+                  onClick={() => setSelected(index)}
+                  className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold
+                    ${
+                      selected === index
+                        ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
+                        : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
+                    }`}
+                >
+                  <div className="mb-2">
+                    <img
+                      src={option.image}
+                      alt="icon"
+                      className="w-9 h-6 object-contain"
+                    />
+                  </div>
+                  <span style={{ fontWeight: "500" }}>{option.label}</span>
+                </button>
+              ))}
             </div>
 
             {/* Mobile layout */}
-<div className="grid grid-cols-3 gap-3 lg:hidden">
-  {/* First 3 rows normal */}
-  {options.slice(0, 3).map((option, index) => (
-    <button
-      key={index}
-      onClick={() => setSelected(index)}
-      className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold
-        ${
-          selected === index
-            ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
-            : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
-        }`}
-    >
-      <div className="mb-2">
-        <img src={option.image} alt="icon" className="w-9 h-9 object-contain" />
-      </div>
-      <span style={{ fontWeight: "500" }}>{option.label}</span>
-    </button>
-  ))}
-
-  {options.slice(3, 6).map((option, index) => {
-    const actualIndex = index + 3;
-    return (
-      <button
-        key={actualIndex}
-        onClick={() => setSelected(actualIndex)}
-        className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold
-          ${
-            selected === actualIndex
-              ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
-              : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
-          }`}
-      >
-        <div className="mb-2">
-          <img src={option.image} alt="icon" className="w-9 h-9 object-contain" />
-        </div>
-        <span style={{ fontWeight: "500" }}>{option.label}</span>
-      </button>
-    );
-  })}
-
-  {options.slice(6, 9).map((option, index) => {
-    const actualIndex = index + 6;
-    return (
-      <button
-        key={actualIndex}
-        onClick={() => setSelected(actualIndex)}
-        className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold
-          ${
-            selected === actualIndex
-              ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
-              : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
-          }`}
-      >
-        <div className="mb-2">
-          <img src={option.image} alt="icon" className="w-9 h-9 object-contain" />
-        </div>
-        <span style={{ fontWeight: "500" }}>{option.label}</span>
-      </button>
-    );
-  })}
-
-  {/* The extra element in column 2 */}
-  <div className="col-start-2">
-    <button
-      onClick={() => setSelected(9)}
-      className={`flex flex-col items-center justify-center rounded-xl border px-1 py-4 transition-all text-sm font-semibold
-        ${
-          selected === 9
-            ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
-            : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
-        }`}
-    >
-      <div className="mb-2">
-        <img
-          src={options[9].image}
-          alt="icon"
-          className="w-9 h-9 object-contain"
-        />
-      </div>
-      <span style={{ fontWeight: "500" }}>{options[9].label}</span>
-    </button>
-  </div>
-</div>
-
+            <div className="grid grid-cols-3 gap-3 lg:hidden">
+              {options.map((option, index) => (
+                <button
+                  key={index}
+                  onClick={() => setSelected(index)}
+                  className={`flex flex-col items-center justify-center rounded-xl border px-3 py-4 transition-all text-sm font-semibold
+                    ${
+                      selected === index
+                        ? "bg-[#E7ECF5] border-[rgba(36,80,160,0.53)] text-[#2450A0]"
+                        : "bg-[#F7F8FA] border-transparent text-gray-700 hover:border-blue-300"
+                    }`}
+                >
+                  <div className="mb-2">
+                    <img
+                      src={option.image}
+                      alt="icon"
+                      className="w-9 h-9 object-contain"
+                    />
+                  </div>
+                  <span style={{ fontWeight: "500" }}>{option.label}</span>
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="mt-8 flex justify-center lg:justify-end">

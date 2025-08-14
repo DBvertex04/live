@@ -13,7 +13,6 @@ export default function Page1() {
     newOtp[index] = value.slice(-1); // only last character
     setOtp(newOtp);
 
-    // Auto move to next input if value entered
     if (value && index < otp.length - 1) {
       inputRefs.current[index + 1]?.focus();
     }
@@ -58,14 +57,12 @@ export default function Page1() {
         className="pt-[120px] pb-12 flex justify-center relative z-10"
         style={{ top: "35px" }}
       >
-        <div
-          className="w-full max-w-[650px] px-4"
-          style={{ maxWidth: "1090px", paddingBottom: "100px" }}
-        >
+        <div className="w-full max-w-[1090px] px-4 pb-[100px]">
+          {/* Call Icon */}
           <div className="flex justify-start mt-6">
             <div
               className="w-[60px] h-[60px] flex items-center justify-center border border-[#E6E6E6] rounded-[12px] bg-white"
-              style={{ border: "solid #0000001C", borderRadius: "16px" }}
+              style={{ border: "solid #0000001C", borderRadius: "20px" }}
             >
               <img
                 src="/facilities/call.png"
@@ -75,89 +72,119 @@ export default function Page1() {
             </div>
           </div>
 
-          <h2
-            style={{
-              fontSize: "24px",
-              fontWeight: "700",
-              color: "#000000",
-              width: "343px",
-              height: "29px",
-              marginTop: "30px",
-            }}
-          >
-            OTP Verification
-          </h2>
-          <p
-            style={{
-              fontSize: "14px",
-              fontWeight: "400",
-              color: "#666666",
-              marginTop: "15px",
-            }}
-          >
-            Enter the verification code we just sent on your phone number
-          </p>
+          {/* MOBILE VIEW */}
+          <div className="block md:hidden">
+            <h2 className="mt-[30px] text-[24px] font-bold text-black">
+              OTP Verification
+            </h2>
+            <p className="mt-[15px] text-[14px] text-[#666666]">
+              Enter the verification code we just sent on your phone number
+            </p>
+            {renderOtpForm()}
+          </div>
 
-          {/* OTP Inputs */}
-          <form className="mt-8 space-y-8">
-            <div className="flex flex-col items-center space-y-8">
-              {/* OTP Boxes */}
-              <div className="flex gap-4 sm:gap-6 md:gap-8 flex-wrap justify-center">
-                {otp.map((digit, index) => (
-                  <input
-                    key={index}
-                    ref={(el) => {
-                      inputRefs.current[index] = el;
-                    }}
-                    type="text"
-                    maxLength={1}
-                    value={digit}
-                    placeholder="0"
-                    onChange={(e) =>
-                      handleChange(e.target.value.replace(/[^0-9]/g, ""), index)
-                    }
-                    onKeyDown={(e) => handleKeyDown(e, index)}
-                    className={`w-[55px] h-[55px] sm:w-[60px] sm:h-[60px] text-center text-[18px] sm:text-[20px] font-semibold rounded-xl outline-none
-                      bg-[#F1F2F6] 
-                      placeholder:text-[18px] placeholder:font-medium placeholder:text-[#0000001A]
-                      ${
-                        digit
-                          ? "text-[#2450A0] border border-[#2450A0]"
-                          : "text-[#2450A0] border border-transparent"
-                      }
-                      focus:ring-1 focus:ring-[#2450A0] transition-all duration-200`}
-                  />
-                ))}
-              </div>
+          {/* DESKTOP VIEW (centered white card) */}
+          <div className="hidden md:flex items-center justify-center min-h-screen mt-[-120px]">
+            <div className="bg-white rounded-[70px] shadow-md p-8 max-w-[600px] w-full">
+  {/* Heading section - centered */}
+  <div className="text-center">
+    <h1 className="text-black text-[28px] font-semibold">
+      Welcome back
+    </h1>
+    <div className="flex items-baseline gap-2 justify-center">
+      <h2 className="text-[#2450A0] text-[28px] font-bold">
+        Sign in
+      </h2>
+      <span className="text-black text-[28px] font-bold">
+        to continue!
+      </span>
+    </div>
+  </div>
 
-              {/* Verify Button */}
-              <div className="w-full flex justify-center">
-                <button
-                  type="button"
-                  className="bg-[#2450A0] py-3 rounded-full font-medium text-sm w-[450px] sm:w-[300px] md:w-[400px] lg:w-[567px]"
-                >
-                  <span className="text-[14px] font-medium text-white">
-                    Verify
-                  </span>
-                </button>
-              </div>
-            </div>
-          </form>
+  <p className="mt-5 text-center text-[16px] text-[#666666]">
+  Enter the verification code
+</p>
 
-          {/* Next Button */}
-          <div className="text-right mt-6">
-            <Link href="/r-step-3">
-              <Image
-                src="/next.png"
-                alt="Bottom Image"
-                width={300}
-                height={300}
-                className="absolute mt-4 cursor-pointer left-1/2 -translate-x-1/2 lg:left-[765px] lg:translate-x-0"
-              />
-            </Link>
+  {renderOtpForm()}
+</div>
+
           </div>
         </div>
       </main>
     </div>
   );
+
+  // OTP form
+  function renderOtpForm() {
+    return (
+      <form className="mt-8 space-y-8">
+        <div className="flex flex-col items-center space-y-[20px]">
+          {/* OTP Inputs */}
+          <div className="flex gap-6 sm:gap-6 md:gap-8 flex-wrap justify-center">
+            {otp.map((digit, index) => (
+              <input
+                key={index}
+                ref={(el) => {
+                  inputRefs.current[index] = el;
+                }}
+                type="text"
+                maxLength={1}
+                value={digit}
+                placeholder="0"
+                onChange={(e) =>
+                  handleChange(e.target.value.replace(/[^0-9]/g, ""), index)
+                }
+                onKeyDown={(e) => handleKeyDown(e, index)}
+                className={`w-[55px] h-[55px] sm:w-[60px] sm:h-[60px] text-center text-[18px] sm:text-[20px] font-semibold rounded-xl outline-none
+                  bg-[#F1F2F6] 
+                  placeholder:text-[18px] placeholder:font-medium placeholder:text-[#0000001A]
+                  ${
+                    digit
+                      ? "text-[#2450A0] border border-[#2450A0]"
+                      : "text-[#2450A0] border border-transparent"
+                  }
+                  focus:ring-1 focus:ring-[#2450A0] transition-all duration-200`}
+              />
+            ))}
+          </div>
+
+          {/* Verify Button */}
+          <div className="w-[80%] flex flex-col items-center">
+            <button
+              type="button"
+              className="bg-[#2450A0] py-3 rounded-full font-medium text-sm w-[325px] sm:w-[300px] md:w-[400px] lg:w-[400px]"
+            >
+              <span
+                className="text-[14px] font-medium text-white"
+                style={{ fontWeight: "100" }}
+              >
+                VERIFY
+              </span>
+            </button>
+
+            {/* Resend OTP */}
+            <p
+              className="text-center mt-[30px]"
+              style={{
+                fontSize: "15px",
+                color: "#000000",
+                fontWeight: "500",
+              }}
+            >
+              Resend OTP in 12secs
+            </p>
+            <p
+              className="text-center mt-[4px]"
+              style={{
+                fontSize: "14px",
+                color: "#4c4c4ccf",
+              }}
+            >
+              Resend OTP
+            </p>
+          </div>
+        </div>
+      </form>
+    );
+  }
 }

@@ -132,7 +132,7 @@ const Step4: React.FC<Step4Props> = ({
         <button
           type="button"
           onClick={handleNext}
-          className="bg-[#2450A0] text-white px-6 py-2 rounded-full w-full sm:w-[48%]"
+          className="bg-[#2450A0] text-white px-6 py-2 rounded-full w-full sm:w-[48%] md:mb-0 mb-8"
         >
           SUBMIT
         </button>
